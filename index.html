@@ -1,0 +1,49 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet" />
+</head>
+<body ng-app="TaskApp" ng-cloak>
+    <div layout='column' layout-fill  ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                <span>Welcome To Shopping Cart</span>
+                </h2>
+                <span flex></span>
+                <md-button aria-label="Learn More" ng-click="navigate('home')">
+                <md-icon> <i class="material-icons">home</i></md-icon>
+                </md-button>
+                <md-button class="md-raised" aria-label="Learn More" ng-click="navigate('WishList')">
+                <md-icon> <i style="color:rgb(233, 30, 99);" class="material-icons">favorite</i></md-icon>
+                    Wish List
+                <md-badge style="color: rgb(233, 30, 99);background:#ddd;">{{wishListCount}}</md-badge>
+                </md-button>
+                <md-button class="md-raised" aria-label="Learn More" ng-click="navigate('cart')">
+                <md-icon> <i class="material-icons">shopping_cart</i></md-icon>
+                    Cart
+                <md-badge style="color: rgb(233, 30, 99);background:#ddd;">{{cartCount}}</md-badge>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <div ng-view></div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <script src="ViewModels/app.js"></script>
+    <script src="ViewModels/Controllers/home.js"></script>
+    <script src="ViewModels/Services/cart.js"></script>
+    <script src="ViewModels/Services/wishList.js"></script>
+    <script src="ViewModels/Controllers/shoppingCart.js"></script>
+    <script src="ViewModels/Controllers/wishListCtrl.js"></script>
+    <script src="ViewModels/Controllers/cartCtrl.js"></script>
+</body>
+</html>

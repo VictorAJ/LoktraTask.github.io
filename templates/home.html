@@ -1,0 +1,764 @@
+<div ng-controller="HomeCtrl" ng-cloak>
+     <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>TASK PORTAL</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <i class="material-icons">favorite</i>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="More">
+          <i class="material-icons">more_vert</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    
+<md-content class="md-padding">
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-click="goto('resume')" name="resume">Resume</md-nav-item>
+            <md-nav-item md-nav-click="goto('donation')" name="donation">Donation</md-nav-item>
+        </md-nav-bar>
+</md-content>
+
+<md-content ng-show="resume">
+    <md-content class="md-padding">
+        <md-toolbar  md-colors="{background: 'indigo-800'}" class="md-theme-light">
+            <h2 layout="row" layout-align="center center" class="md-toolbar-tools">
+            <span>CURRICULUM VITAE</span>
+            </h2>
+        </md-toolbar>
+        
+        <md-toolbar md-colors="{background: 'indigo'}" class="md-theme-light">
+            <md-grid-list
+                    md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="6"
+                    md-row-height-gt-md="4:1" md-row-height="4:1"
+                        md-gutter-gt-sm="0px" >
+                <md-grid-tile class="gray"
+                        md-rowspan="1" md-colspan="3" md-colspan-sm="1" md-colspan-xs="1">
+                        Name: Victor Arokiyaraj H
+                </md-grid-tile>
+                <md-grid-tile class="gray"
+                        md-rowspan="1" md-colspan="3" md-colspan-sm="1" md-colspan-xs="1">
+                    Mobile: +91 9787318355
+                </md-grid-tile>
+            </md-grid-list>
+        </md-toolbar>
+        <br/>
+        <md-divider></md-divider>
+            
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Experience Details">
+                <div ng-repeat="row in experiences">
+                    <md-list-item  class="secondary-button-padding">
+                        <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                        <p>{{row.label}}</p>
+                    </md-list-item>
+
+                    <md-divider></md-divider>
+                </div>
+            </md-tab>
+            <md-tab label="EDUCATIONAL QUALIFICATIONS">
+                <md-content class="md-padding" layout="row">
+                    <div flex-xs flex-gt-xs="100" flex-gt-md="100" flex-gt-sm="100" flex-gt-lg="50" layout="column">
+                        <md-card md-colors="{background: 'orange'}" md-theme-watch>
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">Master of Computer Applications</span>
+                                    <span class="md-subhead">MCA</span>
+                                </md-card-title-text>
+                                <md-card-title-media>
+                                    <div class="md-media-sm card-media"></div>
+                                </md-card-title-media>
+                            </md-card-title>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-raised" ng-click="showDialogMCA($event)">More Info</md-button>
+                            </md-card-actions>
+                        </md-card>
+                        
+                        <div style="visibility: hidden">
+                            <div class="md-dialog-container" id="dialogMCA">
+                            <md-dialog>
+                                <md-toolbar style="height:40px;" md-colors="{background: 'orange-400'}" class="_md _md-toolbar-transitions">
+                                    <div class="md-toolbar-tools">
+                                        <h2>Master of Computer Applications (MCA)</h2>
+                                        <span flex="" class="flex"></span>
+                                        <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="cancelDialog()">
+                                            <i class="material-icons">close</i>
+                                            <div class="md-ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </md-toolbar>
+                                <br/>
+                                <table style="width:100%;" border="0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:10%;" height="30">
+                                                Institution / University
+                                            </th>
+                                            <th style="width:10%;" height="30">
+                                                Year of Study
+                                            </th>
+                                            <th style="width:10%;" height="30">
+                                                CGPA / %
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                Sri Ramakishna Engineering College
+                                            </td>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                2014
+                                            </td>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                80 %
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                                <br/>
+                                
+                            </md-dialog>    
+                            </div>
+                        </div>
+                        
+                        <br/>
+                        <md-card md-colors="{background: 'blue'}" md-theme-watch>
+                            <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">HSC</span>
+                                <span class="md-subhead">+12</span>
+                            </md-card-title-text>
+                            <md-card-title-media>
+                                <div class="md-media-sm card-media"></div>
+                            </md-card-title-media>
+                            </md-card-title>
+                            <md-card-actions layout="row" layout-align="end center">
+                            <md-button class="md-raised" ng-click="showDialogHSC($event)">More Info</md-button>
+                            </md-card-actions>
+                        </md-card>
+                        
+                        <div style="visibility: hidden">
+                            <div class="md-dialog-container" id="dialogHSC">
+                            <md-dialog>
+                                <md-toolbar style="height:40px;" md-colors="{background: 'blue'}" class="_md _md-toolbar-transitions">
+                                    <div class="md-toolbar-tools">
+                                        <h2>HSC (+12)</h2>
+                                        <span flex="" class="flex"></span>
+                                        <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="cancelDialog()">
+                                        <i class="material-icons">close</i>
+                                        <div class="md-ripple-container"></div></button>
+                                    </div>
+                                </md-toolbar>
+                                <br/>
+                                <table style="width:100%;" border="0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:10%;" height="30">
+                                                Institution / University
+                                            </th>
+                                            <th style="width:10%;" height="30">
+                                                Year of Study
+                                            </th>
+                                            <th style="width:10%;" height="30">
+                                                CGPA / %
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                Bishop Ubagaraswamy Hr Sec School
+                                            </td>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                2007
+                                            </td>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                72 %
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                                <br/>
+                                
+                            </md-dialog>    
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div flex-xs flex-gt-xs="100" flex-gt-md="100" flex-gt-sm="100" flex-gt-lg="50" layout="column">
+                        <md-card md-colors="{background: 'blue'}" md-theme-watch>
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">Bachelor of Computer Applications</span>
+                                    <span class="md-subhead">BCA</span>
+                                </md-card-title-text>
+                                <md-card-title-media>
+                                    <div class="md-media-sm card-media"></div>
+                                </md-card-title-media>
+                            </md-card-title>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-raised" ng-click="showDialogBCA($event)">More Info</md-button>
+                            </md-card-actions>
+                        </md-card>
+                        
+                        <div style="visibility: hidden">
+                            <div class="md-dialog-container" id="dialogBCA">
+                            <md-dialog>
+                                <md-toolbar style="height:40px;" md-colors="{background: 'blue'}" class="_md _md-toolbar-transitions">
+                                    <div class="md-toolbar-tools">
+                                        <h2>Bachelor of Computer Applications (BCA)</h2>
+                                        <span flex="" class="flex"></span>
+                                        <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="cancelDialog()">
+                                        <i class="material-icons">close</i>
+                                        <div class="md-ripple-container"></div></button>
+                                    </div>
+                                </md-toolbar>
+                                <br/>
+                                <table style="width:100%;" border="0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:10%;" height="30">
+                                                Institution / University
+                                            </th>
+                                            <th style="width:10%;" height="30">
+                                                Year of Study
+                                            </th>
+                                            <th style="width:10%;" height="30">
+                                                CGPA / %
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                Hindusthan College of Arts and Science
+                                            </td>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                2010
+                                            </td>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                63 %
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                                <br/>
+                                
+                            </md-dialog>    
+                            </div>
+                        </div>
+                        
+                        <br/>
+                        <md-card md-colors="{background: 'orange'}" md-theme-watch>
+                            <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">SSLC</span>
+                                <span class="md-subhead">10th</span>
+                            </md-card-title-text>
+                            <md-card-title-media>
+                                <div class="md-media-sm card-media"></div>
+                            </md-card-title-media>
+                            </md-card-title>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-raised" ng-click="showDialogSSLC($event)">More Info</md-button>
+                            </md-card-actions>
+                        </md-card>
+                        
+                        <div style="visibility: hidden">
+                            <div class="md-dialog-container" id="dialogSSLC">
+                            <md-dialog>
+                                <md-toolbar style="height:40px;" md-colors="{background: 'orange-400'}" class="_md _md-toolbar-transitions">
+                                    <div class="md-toolbar-tools">
+                                        <h2>SSLC (10th)</h2>
+                                        <span flex="" class="flex"></span>
+                                        <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="cancelDialog()">
+                                        <i class="material-icons">close</i>
+                                        <div class="md-ripple-container"></div></button>
+                                    </div>
+                                </md-toolbar>
+                                <br/>
+                                <table style="width:100%;" border="0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:10%;" height="30">
+                                                Institution / University
+                                            </th>
+                                            <th style="width:10%;" height="30">
+                                                Year of Study
+                                            </th>
+                                            <th style="width:10%;" height="30">
+                                                CGPA / %
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                Bishop Ubagaraswamy Hr Sec School
+                                            </td>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                2005
+                                            </td>
+                                            <td style="width:10%;text-align:center;" height="40">
+                                                78 %
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                                <br/>
+                                
+                            </md-dialog>    
+                            </div>
+                        </div>
+                        
+                    </div>
+                </md-content>
+                
+            </md-tab>
+            
+            <md-tab label="Software Skill Set">
+                 <md-content class="md-padding" layout-md="column" layout="row">
+                    <div flex-xs flex-gt-xs="100" flex-gt-md="50" flex-gt-sm="50"  flex-gt-lg="50" layout="column">
+                        <md-card md-colors="{background: 'indigo'}" md-theme-watch>
+                            <md-card-content>
+                                <h2>Languages</h2>
+                                <div layout="row">
+                                    <div flex="33">
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>C#</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>HTML5</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>CSS3</p>
+                                        </md-list-item>
+                                    </div>
+                                    <div flex="33">
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>JQUERY</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>JavaScript</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>XML</p>
+                                        </md-list-item>
+                                    </div>
+                                    <div flex="33">
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>JSON</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Ajax</p>
+                                        </md-list-item>
+                                         <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Typescript</p>
+                                        </md-list-item>
+                                    </div>
+                                </div>
+                            </md-card-content>
+                        </md-card>
+                        
+                        <md-card md-colors="{background: 'deep-purple'}" md-theme-watch>
+                            <md-card-content>
+                                <h2>Framework</h2>
+                                <div layout="row">
+                                    <div flex="50">
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Angular JS (1&2)</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Ionic Framework ( 1& 2)</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Framework 7</p>
+                                        </md-list-item>
+                                    </div>
+                                    <div flex="50">
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Angular JS Dashboard Framework</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Node JS</p>
+                                        </md-list-item>
+                                    </div>
+                                </div>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                    <div flex-xs flex-gt-xs="100" flex-gt-md="50" flex-gt-lg="50" flex-gt-sm="50" layout="column">
+                        <md-card md-colors="{background: 'purple'}" md-theme-watch>
+                            <md-card-content>
+                                <h2>Hybrid Mobile Utilities</h2>
+                                <div layout="row">
+                                    <div flex="50">
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Ionic and Phonegap</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Cordova</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Twitter Bootstrap</p>
+                                        </md-list-item>
+                                    </div>
+                                    <div flex="50">
+                                         <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>JQUERY Mobile</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Responsive Layouts</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Google API's handling</p>
+                                        </md-list-item>
+                                    </div>
+                                </div>
+                            </md-card-content>
+                        </md-card>
+                        
+                        <md-card md-colors="{background: 'pink'}" md-theme-watch>
+                            <md-card-content>
+                                <div layout="row">
+                                    <div flex="40">
+                                        <h2>Database</h2>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>MS SQL Server</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>SQL Lite</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>FireBase</p>
+                                        </md-list-item>
+                                    </div>
+                                    <div flex="33">
+                                        <h2>Tools</h2>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Eclipse</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Android Studio</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Webstrom</p>
+                                        </md-list-item>
+                                    </div>
+                                    <div flex="33">
+                                        <h2>&nbsp;</h2>
+                                         <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Visual Studio</p>
+                                        </md-list-item>
+                                        <md-list-item  class="secondary-button-padding">
+                                            <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                            <p>Highcharts</p>
+                                        </md-list-item>
+                                    </div>
+                                </div>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                    
+                 </md-content>
+            </md-tab>
+            
+            <md-tab label="PROJECT EXPERIENCE">
+                <md-content class="md-padding" layout-md="column" layout="row">
+                    <div flex-xs flex-gt-xs="100" flex-gt-md="100" layout="column" style="max-height:300%;">
+                        <md-card md-colors="{background: 'indigo'}" md-theme-watch>
+                            <md-card-content>
+                                <p><b>Project Title:</b> OBC ( Internal App)</p>
+                                <p><b>Duration:</b> 3 Months</p>
+                                <p><b>Technologies Used:</b> Ionic Framework 2 , Angular 2, Typescript , Cordova Plugins, HTML5, Java , spring</p>
+                                <h4>Project Description:</h4>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>This is an Android Tab based App to be used Internally for automation and digitization of processes thereby taking it a step closed to egovernance.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>App will show defaulters list based on GPS and get client details and images using camera.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>Have an option to show direction in google maps to the client location.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>App having an option like offline storage and once netwok connects its syncronize with the server</p>
+                                </md-list-item>
+                                <h4>Role and Responsibilities:</h4>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involving in development of app in design and client side business logic.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Communicate with server to get and send data in Json objects.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Participating in defect review.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involving in unit testing.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involved in full front end and client side logic.</p>
+                                </md-list-item>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                </md-content>
+                <md-content class="md-padding" layout-md="column" layout="row">
+                    <div flex-xs flex-gt-xs="100" flex-gt-md="100" layout="column" style="max-height:300%;">
+                        <md-card md-colors="{background: 'deep-purple'}" md-theme-watch>
+                            <md-card-content>
+                                <p><b>Project Title:</b> FSS Card Control</p>
+                                <p><b>Duration:</b> 3 Months</p>
+                                <p><b>Technologies Used:</b> Ionic Framework 1,Cordova Plugins, Angular JS, HTML5, Java , spring</p>
+                                <h4>Project Description:</h4>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>This project is related to Card Management for controlling over the card activities with just a tap.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>This app will give freedom to cardholders to restrict the card usage as per their desire using the simple configurations.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>The FSS Toggle is a user friendly module with very less number of configurations to set the desired control on each card linked the customer account.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>This app provides features like Card on/off, card rules as per the transaction types, merchant categories, countries, currencies etc., spend control based on daily, weekly, yearly usage of the card.</p>
+                                </md-list-item>
+                                <h4>Role and Responsibilities:</h4>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involving in development of app in design and client side business logic.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Communicate with server to get and send data in XML and Json objects.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Participating in defect review.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involving in unit testing.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involved in full front end and client side logic.</p>
+                                </md-list-item>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                </md-content>
+                <md-content class="md-padding" layout-md="column" layout="row">
+                    <div flex-xs flex-gt-xs="100" flex-gt-md="100" layout="column" style="max-height:300%;">
+                        <md-card md-colors="{background: 'purple'}" md-theme-watch>
+                            <md-card-content>
+                                <p><b>Project Title:</b> Tokenization</p>
+                                <p><b>Duration:</b> 2 Months</p>
+                                <p><b>Technologies Used:</b> Angular JS , Html 5, Twitter Bootstrap , Jquery</p>
+                                <h4>Project Description:</h4>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>Token Service Providers are entities within the Tokenization ecosystem that are authorized to provide Payment Tokens to registered Token Requestors.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>The TSP maps the original card number with the payment tokens and stores in a secure token vault.</p>
+                                </md-list-item>
+                                <h4>Responsibilities of Token Service Provider</h4>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">arrow_forward</i></md-icon>
+                                    <p><b>Token Requestor Registration:</b> Token Requestor Registration ensures the integrity of the Token Service by enrolling, approving, and registering entities as Token Requestors.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">arrow_forward</i></md-icon>
+                                    <p><b>Tokenization:</b> Replace PAN with a payment token.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">arrow_forward</i></md-icon>
+                                    <p><b>De-Tokenization:</b> Convert the Payment token back to original PAN using the token vault.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">arrow_forward</i></md-icon>
+                                    <p><b>Token Vault:</b> Establishes and maintains the payment token to PAN Mapping.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">arrow_forward</i></md-icon>
+                                    <p><b>Domain Management:</b> Additional Security for restricting tokens to be used within specific channels or domains.</p>
+                                </md-list-item>
+                                 <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">arrow_forward</i></md-icon>
+                                    <p><b>Token Assurance:</b> Ensures that the payment token is replacing a PAN that is legitimately used by the token requestor.</p>
+                                </md-list-item>
+                                
+                                <h4>Role and Responsibilities:</h4>
+                                
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involving in development of app in design and client side business logic.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Communicate with server to get and send data in Json objects.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Participating in defect review.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involving in unit testing.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involved in full front end and client side logic.</p>
+                                </md-list-item>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                </md-content>
+                
+                <md-content class="md-padding" layout-md="column" layout="row">
+                    <div flex-xs flex-gt-xs="100" flex-gt-md="100" layout="column" style="max-height:300%;">
+                        <md-card md-colors="{background: 'pink'}" md-theme-watch>
+                            <md-card-content>
+                                <p><b>Project Title:</b> TPS Browser</p>
+                                <p><b>Duration:</b> 1 Months</p>
+                                <p><b>Technologies Used:</b> Angular JS, Highcharts, Bootstrap , HTML5, Asp.Net, c#.</p>
+                                <h4>Project Description:</h4>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>This project is about fully automated non stop cloud servers and provide detailed analytics in different types of graphs using highcharts.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                                    <p>This will provide exact analytics report in the form different chart graphs from non stop servers to end users.</p>
+                                </md-list-item>
+                                
+                                <h4>Role and Responsibilities:</h4>
+                                
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Responsible for understanding user requirements, designing and developing the applications.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Worked on the modules implementing the business logic in Angular JS.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Used n-tier architecture.</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Involved in defect review..</p>
+                                </md-list-item>
+                                <md-list-item  class="secondary-button-padding">
+                                    <md-icon><i class="material-icons">star</i></md-icon>
+                                    <p>Responding all bugs and resolving them.</p>
+                                </md-list-item>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+        
+    </md-content>
+</md-content>
+
+<md-content ng-show="!resume" class="md-padding" layout-md="column" layout="row" layout-align="center center">
+    <div flex-xs flex-gt-xs="100" flex-gt-md="40" layout="column">
+        <md-toolbar class="bubbleYou you" md-colors="{background: 'grey-800'}" class="md-theme-light">
+            <h1 layout="row" layout-align="center center" class="md-toolbar-tools">
+            <span style="font-style:italic;">$167&nbsp;</span><span>still needed for this project</span>
+            </h1>
+            
+        </md-toolbar>
+        
+        <md-slider md-colors="{color:'deep-orange'}" flex md-discrete ng-model="amountRating" step="1" min="1" max="1000" aria-label="rating">
+        </md-slider>
+        
+        <md-card md-theme-watch>
+            <md-divider></md-divider>
+            <md-card-content>
+                <h2><span md-colors="{color:'deep-orange'}">Only 3 days left</span>  <span style="font-weight:normal;" md-colors="{color:'grey-700'}">to fund this project.</span></h2>
+                    
+                <h2 style="font-weight:normal;"><span md-colors="{color:'grey-700'}">Join this <b>42</b> other donors who have already supported this project. Every dollor helps.</span></h2>
+                
+                <md-content class="md-padding" layout="row">
+                    <div flex-xs flex-gt-xs="50" flex-gt-md="50" flex-gt-sm="50" flex-gt-lg="50" layout="column">
+                        <md-input-container class="md-icon-float md-block">
+                            <md-icon> <i style="font-size: 1.5em;margin-top:-10px;" class="material-icons">attach_money</i></md-icon>
+                            <input ng-model="amount" readonly style="text-align:center; font-size: 2em;" aria-label="dd" type="number">
+                        </md-input-container>
+                        <md-button style="margin-top: -35px;margin-left: 0px;font-style: italic;"  md-no-ink md-colors="{color:'blue'}">Why give $50?</md-button>                
+                    </div>
+                    
+                    <div flex-xs flex-gt-xs="50" flex-gt-md="50" flex-gt-sm="50" flex-gt-lg="50" layout="column">
+                        <md-button class="md-raised" style="height:40px;" md-colors="{background:'green'}" ng-click="addMoney()">Give Now</md-button>
+                    </div>
+                </md-content>
+                
+            </md-card-content>
+        </md-card>
+        
+         <md-content class="md-padding" layout="row">
+            <div flex-xs flex-gt-xs="50" flex-gt-md="50" flex-gt-sm="50" flex-gt-lg="50" layout="column">
+                <md-button class="md-raised" ng-click="showAlert()">Save for later</md-button>
+            </div>
+            
+            <div flex-xs flex-gt-xs="50" flex-gt-md="50" flex-gt-sm="50" flex-gt-lg="50" layout="column">
+                <md-button class="md-raised">Tell your friends</md-button>
+            </div>
+        </md-content>
+    </div>
+</md-content>

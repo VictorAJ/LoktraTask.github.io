@@ -1,0 +1,62 @@
+<div ng-controller="cartCtrl">
+    <md-content  flex class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+        <div  flex="75" flex-sm="100" flex-xs="100" layout="column">
+            
+              <table style="width:100%;" border="1" class="card" ng-show="cartList.length > 0">
+                <thead>
+                    <tr style="background-color:#ddd;">
+                        <th style="width:10%;" height="30">
+                            
+                        </th>
+                        <th style="width:10%;" height="30">
+                            ITEM
+                        </th>
+                        <th style="width:10%;" height="30">
+                            QUANTITY
+                        </th>
+                        <th style="width:10%;" height="30">
+                            PRICE
+                        </th>
+                        <th style="width:10%;" height="30">
+                            SUBTOTAL
+                        </th>
+                        <th style="width:10%;" height="30">
+                            <md-card-actions layout="column" layout-align="center center">
+                                <md-button class="md-raised" md-colors="{background:'indigo'}" ng-click="RemoveAll()">Remove All</md-button>
+                            </md-card-actions>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in cartList">
+                        <td style="width:10%;text-align:center;" height="40">
+                              <img ng-src="img/{{product.imgUrl}}" class="md-card-image" style="height:100px;width:100px;">
+                        </td>
+                        <td style="width:10%;text-align:center;" height="40">
+                          {{product.name}}
+                        </td>
+                        <td style="width:10%;text-align:center;" height="40">
+                            <input ng-model="product.quantity" style="width:50%;" ng-change="changeQuantity(product.id, product.quantity)">
+                        </td>
+                        <td style="width:10%;text-align:center;" height="40">
+                           Rs. {{product.price}}
+                        </td>
+                        <td style="width:10%;text-align:center;" height="40">
+                           Rs. {{product.quantity * product.price}}
+                        </td>
+                        <td>
+                            <md-card-actions layout="column" layout-align="center center">
+                                <md-button class="md-raised" md-colors="{background:'indigo'}" ng-click="Remove(product.id)">Remove</md-button>
+                            </md-card-actions>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="text-align:right;">
+                            <h2>Amount Payable : Rs. {{totAmount}}</h2>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </md-content>
+</div>

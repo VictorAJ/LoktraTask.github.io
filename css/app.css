@@ -1,0 +1,100 @@
+﻿.inputdemoIcons {
+  /*
+.right-icon {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  left: auto;
+  margin-top: 0;
+}
+*/ }
+  .inputdemoIcons .inputIconDemo {
+    min-height: 48px; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
+    color: green; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
+    color: dodgerblue; }
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.email,
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
+    color: red; }
+
+.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+  color: white; }
+  
+  .gridListdemoBasicUsage md-grid-list {
+  margin: 8px; }
+
+.gridListdemoBasicUsage .gray {
+  background: #f5f5f5; }
+
+.gridListdemoBasicUsage .green {
+  background: #b9f6ca; }
+
+.gridListdemoBasicUsage .yellow {
+  background: #ffff8d; }
+
+.gridListdemoBasicUsage .blue {
+  background: #84ffff; }
+
+.gridListdemoBasicUsage .purple {
+  background: #b388ff; }
+
+.gridListdemoBasicUsage .red {
+  background: #ff8a80; }
+
+.gridListdemoBasicUsage md-grid-tile {
+  transition: all 400ms ease-out 50ms; }
+  
+  .navBardemoBasicUsage md-content .ext-content {
+  padding: 50px;
+  margin: 20px;
+  background-color:rgb(63, 81, 181); }
+  .carddemoBasicUsage .card-media {
+  background-color: #999999; }
+  
+  
+
+.bubbleYou{
+    background-color: rgb(66, 66, 66) ;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    color:#000;
+    position: relative;
+    max-width: 98%; 
+    vertical-align: top;
+}
+
+.bubbleYou::before {
+    background-color: rgb(66, 66, 66);
+    content: "\00a0";
+    box-shadow: none;
+    display: block;
+    height: 16px;
+    position: absolute;
+    top: 86%;
+    left:90%;
+    transform:             rotate( 109deg ) skew( -35deg );
+        -moz-transform:    rotate( 109deg ) skew( -35deg );
+        -ms-transform:     rotate( 109deg ) skew( -35deg );
+        -o-transform:      rotate( 109deg ) skew( -35deg );
+        -webkit-transform: rotate( 109deg ) skew( -35deg );
+    width:  20px;
+}
+
+.you {
+    float: right;    
+    margin: 1%;  
+    clear:both;       
+}
+
+.you::before {
+    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+    right: -9px;    
+}
+md-badge{
+  background-color: #259b24;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+}

@@ -1,0 +1,29 @@
+<div ng-controller="ShoppingCartCtrl">
+    
+    <md-content style="background:#ddd;" flex class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+
+        <div ng-repeat="product in products" flex="25" flex-sm="100" flex-xs="100" layout="column">
+            <md-card>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-click="addRemoveWishList(product.id, product.iconText)"  ><span id="icon_{{product.id}}" class="material-icons" style="color:rgb(233, 30, 99)">{{product.iconText}}</span></md-button>
+                </md-card-actions>
+                <md-card-actions layout="row" layout-align="center center">
+                    <img ng-src="img/{{product.imgUrl}}" class="md-card-image" alt="Washed Out" style="height:200px;width:200px;">
+                </md-card-actions>
+                <md-divider></md-divider>
+                <md-card-title>
+                    <md-card-title-text  layout-align="center center">
+                        <span class="md-headline">{{product.name}}</span>
+                        <span class="md-subhead">Price : Rs. {{product.price}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-divider></md-divider>
+                <md-card-actions layout="row" layout-align="center center">
+                    <md-button class="md-raised" md-colors="{background:'indigo'}" ng-click="addToCart(product.id)">Add to Cart</md-button>
+                    <md-button class="md-raised" md-colors="{background:'grey'}" ng-click="buyNow(product.id)">Buy Now</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+
+    </md-content>
+</div>
