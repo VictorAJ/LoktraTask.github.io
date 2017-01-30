@@ -9,7 +9,7 @@ app.controller('WishListCtrl',['$scope', '$mdDialog', '$rootScope', '$mdToast', 
     var cartList = CartService.getCart();
     $rootScope.cartCount = cartList.length;
     $scope.wishList = wishList;
-    
+    $rootScope.shopping = true;
     $scope.remove = function(productID) {
        $scope.wishList = WishListService.remove(productID);
     }
@@ -22,6 +22,10 @@ app.controller('WishListCtrl',['$scope', '$mdDialog', '$rootScope', '$mdToast', 
         }  else if(path.toUpperCase() == "CART") {
             $location.path( '/shopping/cart' );
         }
+    }
+    
+     $scope.addToCart = function(productID) {
+       CartService.addItem(productID);
     }
     
 }]);
