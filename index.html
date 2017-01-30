@@ -7,14 +7,17 @@
 </head>
 <body ng-app="TaskApp" ng-cloak>
     <div layout='column' layout-fill  ng-cloak>
-        <md-toolbar>
+        <md-toolbar ng-show="shopping">
             <div class="md-toolbar-tools">
                 <h2>
                 <span>Welcome To Shopping Cart</span>
                 </h2>
                 <span flex></span>
+                 <md-button class="md-raised" aria-label="Learn More" ng-click="navigate('resume')">
+                    Go To Resume Page
+                </md-button>
                 <md-button aria-label="Learn More" ng-click="navigate('home')">
-                <md-icon> <i class="material-icons">home</i></md-icon>
+                    <md-icon> <i class="material-icons">home</i></md-icon>
                 </md-button>
                 <md-button class="md-raised" aria-label="Learn More" ng-click="navigate('WishList')">
                 <md-icon> <i style="color:rgb(233, 30, 99);" class="material-icons">favorite</i></md-icon>
@@ -28,6 +31,22 @@
                 </md-button>
             </div>
         </md-toolbar>
+        
+        <md-toolbar class="md-hue-2" ng-show="!shopping">
+            <div class="md-toolbar-tools">
+                <h2>
+                <span>TASK PORTAL</span>
+                </h2>
+                <span flex></span>
+                <a href="#/shopping">
+                <md-button class="md-raised" aria-label="Learn More" ng-click="navigate('home')">
+                    <md-icon ng-click="navigate('home')"> <i class="material-icons">shopping_cart</i></md-icon>
+                        GO TO SHOPPING WEBSITE
+                </md-button>
+                </a>
+            </div>
+        </md-toolbar>
+        
         <div ng-view></div>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
