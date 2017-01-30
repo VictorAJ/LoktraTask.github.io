@@ -17,6 +17,8 @@ app.controller('ShoppingCartCtrl',['$scope', '$mdDialog', '$rootScope', '$mdToas
         {id:12, name:'Formal Shoe', price:'1250.00', imgUrl: 'p14.jpg', iconText: 'favorite_border'}
     ]
     
+    $rootScope.shopping = true;
+    
     $rootScope.navigate = function(path) {
         if(path.toUpperCase() == "WISHLIST") {
             
@@ -25,7 +27,10 @@ app.controller('ShoppingCartCtrl',['$scope', '$mdDialog', '$rootScope', '$mdToas
             $location.path( '/shopping' );
         } else if(path.toUpperCase() == "CART") {
             $location.path( '/shopping/cart' );
+        }  else if(path.toUpperCase() == "RESUME") {
+            $location.path( '/home' );
         }
+        
     }
     
     $rootScope.wishListCount = 0;
@@ -72,6 +77,7 @@ app.controller('ShoppingCartCtrl',['$scope', '$mdDialog', '$rootScope', '$mdToas
     }
     
     $scope.buyNow = function(productID) {
-        
+        CartService.addItem(productID);
+        $location.path( '/shopping/cart');
     }
 }]);
