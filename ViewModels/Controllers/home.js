@@ -6,7 +6,7 @@ app.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
   $mdThemingProvider.theme('dark-blue').backgroundPalette('blue').dark();
 });
-app.controller('HomeCtrl',function($scope, $mdDialog) {
+app.controller('HomeCtrl',function($scope, $mdDialog, $location, $rootScope) {
     
     $scope.experiences = [
         {id: 1, label: "2.10+ years hands on experience in Web applications and Hybrid Mobile App development using various Frameworks."},
@@ -23,6 +23,19 @@ app.controller('HomeCtrl',function($scope, $mdDialog) {
         {id: 12, label: "Expert in problem solving and debugging."},
         {id: 13, label: "Experience on working with agile methodologies."}
     ];
+    
+     $scope.navigate = function(path) {
+        if(path.toUpperCase() == "WISHLIST") {
+            
+            $location.path( '/shopping/wishList' );
+        } else if(path.toUpperCase() == "HOME") {
+            $location.path( '/shopping' );
+        } else if(path.toUpperCase() == "CART") {
+            $location.path( '/shopping/cart' );
+        }
+     }
+    
+    $rootScope.shopping = false;
     
     $scope.amountRating = 833;
     $scope.resume = false;
@@ -130,6 +143,17 @@ app.controller('HomeCtrl',function($scope, $mdDialog) {
     $scope.cancelDialog= function() {
         $mdDialog.cancel();
     }
+    
+    $scope.Share = function(ev) {
+         $mdDialog.show(
+            $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Yay, I donated! on Facebook and Twitter')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('OK')
+                .targetEvent(ev)
+            );
+    }
   
 })
-
