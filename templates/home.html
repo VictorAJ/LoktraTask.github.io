@@ -1,18 +1,5 @@
 <div ng-controller="HomeCtrl" ng-cloak>
-     <md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools">
-        <h2>
-          <span>TASK PORTAL</span>
-        </h2>
-        <span flex></span>
-        <md-button class="md-icon-button" aria-label="Favorite">
-          <i class="material-icons">favorite</i>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="More">
-          <i class="material-icons">more_vert</i>
-        </md-button>
-      </div>
-    </md-toolbar>
+     
     
 <md-content class="md-padding">
         <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
@@ -757,7 +744,7 @@
             </div>
             
             <div flex-xs flex-gt-xs="50" flex-gt-md="50" flex-gt-sm="50" flex-gt-lg="50" layout="column">
-                <md-button class="md-raised">Tell your friends</md-button>
+                <md-button class="md-raised" ng-click="Share()">Tell your friends</md-button>
             </div>
         </md-content>
     </div>
