@@ -1,7 +1,7 @@
 app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToast) {
-    this.getCart = function(){
+    this.getCart = function() {
         var cartList = JSON.parse(localStorage.getItem('cart'));
-        if(cartList != null || cartList != "undefined") {
+        if(cartList != null && cartList != "undefined" &&  cartList != undefined) {
             return cartList;
         } else {
             return [];
@@ -121,7 +121,12 @@ app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToa
     };
 
     this.clear = function() {
-          localStorage.setItem('cart',[]);
+        var temp = [];
+        localStorage.setItem('cart',JSON.stringify(temp));
+        
+        $rootScope.cartCount = JSON.parse(localStorage.getItem('cart')).length;
+        
+        return JSON.parse(localStorage.getItem('cart'));
     };
 
     var persist = function() {};
