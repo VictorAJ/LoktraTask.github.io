@@ -4,13 +4,17 @@ app.controller('cartCtrl',['$scope', '$mdDialog', '$rootScope', '$mdToast', 'Wis
     
     $rootScope.wishListCount = 0;
     $rootScope.cartCount = 0;
+    
     var wishList = WishListService.getWishList();
-    $rootScope.wishListCount = wishList.length;
     var cartList = CartService.getCart();
+    
+    $rootScope.wishListCount = wishList.length;
     $rootScope.cartCount = cartList.length;
+
     $scope.cartList = cartList;
     $scope.totAmount = 0;
-    
+    $rootScope.shopping = true;
+
     $scope.Remove = function(productID) {
        $scope.cartList = CartService.remove(productID);
        
@@ -35,10 +39,14 @@ app.controller('cartCtrl',['$scope', '$mdDialog', '$rootScope', '$mdToast', 'Wis
     
     $scope.changeQuantity = function(productID, quantity) {
         CartService.changeQuantity(productID, quantity);
+         $scope.totAmount = 0;
+        for(var i in $scope.cartList) {
+            $scope.totAmount += $scope.cartList[i].quantity * $scope.cartList[i].price; 
+        }
     }
     
     $scope.removeAll = function clear(){
-        
+         $scope.cartList = CartService.clear();
     }
     
 }]);
