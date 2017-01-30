@@ -1,7 +1,10 @@
 <div ng-controller="cartCtrl">
     <md-content  flex class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
-        <div  flex="75" flex-sm="100" flex-xs="100" layout="column">
-            
+        <div flex="75" flex-sm="100" flex-xs="100" layout="column">
+            <div ng-show="cartList.length < 1" style="text-align:center;">  
+                <h2>Your cart is empty</h2>
+                <md-button class="md-raised" md-colors="{background:'green'}" ng-click="navigate('home')">Continue Shopping</md-button>    
+            </div>
               <table style="width:100%;" border="1" class="card" ng-show="cartList.length > 0">
                 <thead>
                     <tr style="background-color:#ddd;">
@@ -22,7 +25,7 @@
                         </th>
                         <th style="width:10%;" height="30">
                             <md-card-actions layout="column" layout-align="center center">
-                                <md-button class="md-raised" md-colors="{background:'indigo'}" ng-click="RemoveAll()">Remove All</md-button>
+                                <md-button class="md-raised" md-colors="{background:'indigo'}" ng-click="removeAll()">Remove All</md-button>
                             </md-card-actions>
                         </th>
                     </tr>
@@ -36,7 +39,7 @@
                           {{product.name}}
                         </td>
                         <td style="width:10%;text-align:center;" height="40">
-                            <input ng-model="product.quantity" style="width:50%;" ng-change="changeQuantity(product.id, product.quantity)">
+                            <input type="number" ng-model="product.quantity" style="width:50%;" ng-change="changeQuantity(product.id, product.quantity)">
                         </td>
                         <td style="width:10%;text-align:center;" height="40">
                            Rs. {{product.price}}
@@ -51,7 +54,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="6" style="text-align:right;">
+                        <td colspan="6" style="text-align:right;padding-right:20%;">
                             <h2>Amount Payable : Rs. {{totAmount}}</h2>
                         </td>
                     </tr>
