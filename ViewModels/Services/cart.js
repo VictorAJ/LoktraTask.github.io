@@ -12,14 +12,14 @@ app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToa
     this.addItem = function(productID){
         var cartList = JSON.parse(localStorage.getItem('cart')); 
         if(cartList == null || cartList == "undefined" || cartList.length < 1) {
-            var newCartList;
+            var newCartList = [];
             
             for(var i in $rootScope.products) {
                 
                 if($rootScope.products[i].id == productID) {
                     $rootScope.products[i].quantity = 1;
                     
-                    newCartList = [$rootScope.products[i]];
+                    newCartList.push($rootScope.products[i]);
                    
                     var toast = $mdToast.simple()
                     .textContent('Product added into cart')
@@ -36,9 +36,10 @@ app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToa
             }
             
             $rootScope.cartProducts = newCartList;
-            localStorage.setItem('cart',JSON.stringify(newCartList));
+            localStorage.setItem('cart',JSON.stringify([newCartList]));
         } else {
-            var cartListAdded = JSON.parse(localStorage.getItem('cart'));
+            var cartListAdded = [];
+            cartListAdded.push(JSON.parse(localStorage.getItem('cart')));
             var flag = false;
             
             for(var i in cartListAdded) {
@@ -85,7 +86,7 @@ app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToa
             }
             
             $rootScope.cartProducts = newCartList;
-            localStorage.setItem('cart',JSON.stringify(cartListAdded));
+            localStorage.setItem('cart',JSON.stringify([cartListAdded]));
         }  
         
         $rootScope.cartCount = JSON.parse(localStorage.getItem('cart')).length;     
