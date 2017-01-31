@@ -39,10 +39,10 @@ app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToa
             localStorage.setItem('cart',JSON.stringify([newCartList]));
         } else {
             var cartListAdded = [];
-            cartListAdded.push(JSON.parse(localStorage.getItem('cart')));
+            cartListAdded = JSON.parse(localStorage.getItem('cart'));
             var flag = false;
             
-            for(var i in cartListAdded[0]) {
+            for(var i in cartListAdded) {
                 
                 if(cartListAdded[i].id == productID) {
                     
