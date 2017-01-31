@@ -42,7 +42,7 @@ app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToa
             cartListAdded.push(JSON.parse(localStorage.getItem('cart')));
             var flag = false;
             
-            for(var i in cartListAdded) {
+            for(var i in cartListAdded[0]) {
                 
                 if(cartListAdded[i].id == productID) {
                     
