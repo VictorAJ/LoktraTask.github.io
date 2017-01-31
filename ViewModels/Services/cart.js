@@ -19,7 +19,7 @@ app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToa
                 if($rootScope.products[i].id == productID) {
                     $rootScope.products[i].quantity = 1;
                     
-                    newCartList.push($rootScope.products[i]);
+                    newCartList = $rootScope.products[i];
                    
                     var toast = $mdToast.simple()
                     .textContent('Product added into cart')
