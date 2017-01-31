@@ -36,7 +36,7 @@ app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToa
             }
             
             $rootScope.cartProducts = newCartList;
-            localStorage.setItem('cart',JSON.stringify([newCartList]));
+            localStorage.setItem('cart',JSON.stringify(newCartList));
         } else {
             var cartListAdded = [];
             cartListAdded = JSON.parse(localStorage.getItem('cart'));
