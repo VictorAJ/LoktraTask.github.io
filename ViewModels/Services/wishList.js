@@ -41,7 +41,7 @@ app.service('WishListService', ['$rootScope','$mdToast', function ($rootScope,$m
             wishListAdded.push(JSON.parse(localStorage.getItem('wishList')));
             var flag = false;
             
-             for(var i in wishListAdded) {
+             for(var i in wishListAdded[0]) {
                 if(wishListAdded[i].id == productID) {
                     
                     if(iconText == 'favorite_border') {
