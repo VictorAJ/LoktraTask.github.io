@@ -12,13 +12,13 @@ app.service('WishListService', ['$rootScope','$mdToast', function ($rootScope,$m
         var wishList = JSON.parse(localStorage.getItem('wishList'));
         
         if(wishList == null || wishList == "undefined") {
-            var newWishList;
+            var newWishList = [];
             
             for(var i in $rootScope.products) {
                 
                 if($rootScope.products[i].id == productID) {
                     
-                   newWishList = $rootScope.products[i];
+                   newWishList.push($rootScope.products[i]);
                    
                     var toast = $mdToast.simple()
                     .textContent('Product added into wishlist')
@@ -37,7 +37,8 @@ app.service('WishListService', ['$rootScope','$mdToast', function ($rootScope,$m
             localStorage.setItem('wishList',JSON.stringify(newWishList));
         
         } else {
-            var wishListAdded = JSON.parse(localStorage.getItem('wishList'));
+            var wishListAdded = [];
+            wishListAdded.push(JSON.parse(localStorage.getItem('wishList')));
             var flag = false;
             
              for(var i in wishListAdded) {
