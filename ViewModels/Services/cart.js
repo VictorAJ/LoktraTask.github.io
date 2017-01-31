@@ -85,8 +85,8 @@ app.service('CartService', ['$rootScope','$mdToast', function ($rootScope,$mdToa
                   }
             }
             
-            $rootScope.cartProducts = newCartList;
-            localStorage.setItem('cart',JSON.stringify([cartListAdded]));
+            $rootScope.cartProducts = cartListAdded;
+            localStorage.setItem('cart',JSON.stringify(cartListAdded));
         }  
         
         $rootScope.cartCount = JSON.parse(localStorage.getItem('cart')).length;     
