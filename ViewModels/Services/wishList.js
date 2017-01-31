@@ -1,7 +1,7 @@
 app.service('WishListService', ['$rootScope','$mdToast', function ($rootScope,$mdToast) {
     this.getWishList = function() {
         var wishList = JSON.parse(localStorage.getItem('wishList'));
-         if(wishList != null || wishList != "undefined") {
+         if(cartList != null && cartList != "undefined" &&  cartList != undefined) {
              return wishList;
          } else {
              return [];
