@@ -16,8 +16,7 @@ app.controller('ShoppingCartCtrl',['$scope', '$mdDialog', '$rootScope', '$mdToas
         {id:11, name:'Designer Lamp', price:'6500.00', imgUrl: 'p12.jpg', iconText: 'favorite_border'},
         {id:12, name:'Formal Shoe', price:'1250.00', imgUrl: 'p14.jpg', iconText: 'favorite_border'}
     ]
-     localStorage.removeItem("wishList");
-    localStorage.removeItem("cart");
+    
     $rootScope.shopping = true;
     
     $rootScope.navigate = function(path) {
