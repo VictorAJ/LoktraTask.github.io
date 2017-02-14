@@ -1,0 +1,106 @@
+<html>
+<head>
+
+<style>
+* {
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+body {
+  background-color: rgb(63,81,181);
+  text-align: center;
+  line-height: 100vh;
+}
+.box {
+  position:relative;
+  vertical-align: middle;
+  color: #0b7;
+  display: inline-block;
+  height: 60px;
+  border-radius:10px;
+  line-height: 60px;
+  text-align: center;
+  transition: 0.5s;
+  padding: 0 20px;
+  cursor: pointer;
+  border: 2px solid #0b7;
+  -webkit-transition:0.5s;
+}
+
+.box:hover {
+  border: 2px solid #0b7;
+  color: #FFF;
+}
+
+.box::before, .box::after {
+  width: 100%;
+  height:100%;
+  z-index: 3;
+  content:'';
+  position: absolute;
+  top:0;
+  left:0;
+  box-sizing: border-box;
+  -webkit-transform: scale(0);
+  transition: 0.10s;
+}
+
+.hoverMe::before {
+  background: #fff;
+  border:2px solid #3FB;
+  border-radius: 50%;
+  height: 15px;
+  box-shadow: 0px 0px 10px 2px #fff;
+  position: absolute;
+  width: 15px;
+  animation: slide 2s ease-in-out .50s infinite;
+}
+
+@keyframes slide {
+  0% {
+    left: -8px;
+    top: -8px;
+  }
+  24%{
+	left: -3px;
+    top: 52px;
+  }
+  25%{
+	left: -8px;
+    top: 55px;
+  }
+  45% {
+    left: 120px;
+    top: 50px;
+  }
+  50% {
+    left: 120px;
+    top: 45px;
+  }
+  75%{
+  left: 120px;
+    top: -5px;
+  }
+  98% {
+    left: 3px;
+    top: -8px;
+  }
+  100% {
+    left: -8px;
+    top: -2px;
+  }
+}
+.box:hover::after, .box:hover::before {
+  -webkit-transform: scale(1);
+}
+</style>
+</head>
+<body >
+	<div class='box hoverMe'>
+		Hover me
+	</div>
+
+</body>
+</html>
