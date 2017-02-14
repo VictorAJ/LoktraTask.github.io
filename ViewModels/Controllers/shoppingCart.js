@@ -17,7 +17,9 @@ app.controller('ShoppingCartCtrl',['$scope', '$mdDialog', '$rootScope', '$mdToas
         {id:12, name:'Formal Shoe', price:'1250.00', imgUrl: 'p14.jpg', iconText: 'favorite_border'}
     ]
     
-    $rootScope.shopping = true;
+      $rootScope.shopping = true;
+    $rootScope.moviesLibrary = false;
+    
     
     $rootScope.navigate = function(path) {
         if(path.toUpperCase() == "WISHLIST") {
