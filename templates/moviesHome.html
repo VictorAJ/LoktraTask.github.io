@@ -1,0 +1,41 @@
+<div ng-controller="MoviesCtrl">
+    <md-toolbar md-colors="{background: 'orange-A200'}">
+        <div class="md-toolbar-tools">
+            <md-input-container md-theme="input" flex style="    padding-top: 37px;">
+                <label>&nbsp;</label>
+                <input type="text" id="movieTitle" ng-model="movieTitle" placeholder="Search movie by name">
+            </md-input-container>
+            
+             <md-button class="md-raised" aria-label="Learn More" ng-click="getMovie()">
+                <md-icon> <i class="material-icons">search</i></md-icon>
+            </md-button>
+        </div>
+
+    </md-toolbar>
+    <div layout="row" ng-show="showLoading" layout-sm="column" layout-align="space-around">
+       <md-progress-linear md-colors="{background: 'green'}" md-mode="indeterminate"></md-progress-linear>
+    </div>
+    <md-content ng-show="movies.length > 0" style="background:#ddd;" flex class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+        <div ng-repeat="movie in movies"  flex="50" flex-sm="80" flex-xs="100" flex-md="50" flex-lg="50" layout="column">
+            <md-card>
+                <md-card-actions layout="row" layout-align="center center">
+                    <img ng-src="{{movie.Poster}}" class="md-card-image" alt="Movie Poster" style="height:400px;width:100%;">
+                </md-card-actions>
+                <md-divider></md-divider>
+                <md-card-title>
+                    <md-card-title-text  layout-align="center center">
+                        <span class="md-headline">TITLE : {{movie.Title}}</span>
+                        <span class="md-subhead">YEAR : {{movie.Year}}</span>
+                        <span class="md-subhead">RELEASED : {{movie.Released}}</span>
+                        <span class="md-subhead">WRITER : {{movie.Writer}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-divider></md-divider>
+                <md-card-actions layout="row" layout-align="center center">
+                    <md-button class="md-raised" md-colors="{background:'indigo'}" ng-click="addToLibrary(movie.imdbID)">Add to Library</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+
+    </md-content>
+</div>

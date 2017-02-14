@@ -1,0 +1,24 @@
+<div ng-controller="LibraryCtrl">
+    <md-content  flex class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+        <div ng-show="wishList.length < 1" style="text-align:center;">  
+            <h2>Library list is empty</h2>
+        </div>
+        
+       <div ng-repeat="movie in movies" flex="50" flex-sm="80" flex-xs="100" flex-md="50" flex-lg="50" layout="column">
+            <md-card>
+                <md-card-actions layout="row" layout-align="center center">
+                    <img ng-src="{{movie.Poster}}" class="md-card-image" alt="Movie Poster" style="height:400px;width:100%;">
+                </md-card-actions>
+                <md-divider></md-divider>
+                <md-card-title>
+                    <md-card-title-text  layout-align="center center">
+                        <span class="md-headline">TITLE : {{movie.Title}}</span>
+                        <span class="md-subhead">YEAR : {{movie.Year}}</span>
+                        <span class="md-subhead">RELEASED : {{movie.Released}}</span>
+                        <span class="md-subhead">WRITER : {{movie.Writer}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+    </md-content>
+</div>
