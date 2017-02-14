@@ -14,6 +14,12 @@ app.config(function($routeProvider) {
     .when("/shopping/cart", {
         templateUrl : "templates/cart.html"
     })
+     .when("/movies", {
+        templateUrl : "templates/moviesHome.html"
+    })
+     .when("/movies/library", {
+        templateUrl : "templates/library.html"
+    })
     .otherwise({
         templateUrl: "templates/home.html"
     });;
