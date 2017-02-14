@@ -32,16 +32,41 @@
             </div>
         </md-toolbar>
         
-        <md-toolbar class="md-hue-2" ng-show="!shopping">
+        <md-toolbar class="md-hue-2" ng-show="!shopping && !moviesLibrary">
             <div class="md-toolbar-tools">
                 <h2>
                 <span>TASK PORTAL</span>
                 </h2>
                 <span flex></span>
+                
                 <a href="#/shopping">
                 <md-button class="md-raised" aria-label="Learn More" ng-click="navigate('home')">
                     <md-icon ng-click="navigate('home')"> <i class="material-icons">shopping_cart</i></md-icon>
                         GO TO SHOPPING WEBSITE
+                </md-button>
+                </a>
+            </div>
+        </md-toolbar>
+        
+        <md-toolbar class="md-hue-2" ng-show="moviesLibrary">
+            <div class="md-toolbar-tools">
+                <h2>
+                <span>Movies Library</span>
+                </h2>
+                <span flex></span>
+                
+                
+                 <a href="#/movies">
+                    <md-button aria-label="Home">
+                        <md-icon> <i class="material-icons">home</i></md-icon>
+                    </md-button>
+                </a>
+                
+                <a href="#/movies/library">
+                <md-button class="md-raised" aria-label="Learn More">
+                    <md-icon> <i style="color:rgb(233, 30, 99);" class="material-icons">favorite</i></md-icon>
+                        Library
+                    <md-badge style="color: rgb(233, 30, 99);background:#ddd;">{{libraryListCount}}</md-badge>
                 </md-button>
                 </a>
             </div>
