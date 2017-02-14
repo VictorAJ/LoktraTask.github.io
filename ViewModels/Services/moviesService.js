@@ -1,7 +1,7 @@
 app.service('MovieService', ['$rootScope','$mdToast','$http','$q', function ($rootScope,$mdToast,$http, $q) {
     this.getMovieByName = function(title) {
         
-        var url = "http://www.omdbapi.com/"
+        var url = "//www.omdbapi.com/"
         var d = $q.defer();
         $http.get(url + "/?t="+title+"&y=&plot=short&r=json").success(function (data) {
             d.resolve(data);
