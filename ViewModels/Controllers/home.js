@@ -35,7 +35,10 @@ app.controller('HomeCtrl',function($scope, $mdDialog, $location, $rootScope) {
         }
      }
     
+      
     $rootScope.shopping = false;
+    $rootScope.moviesLibrary = false;
+    
     
     $scope.amountRating = 833;
     $scope.resume = false;
